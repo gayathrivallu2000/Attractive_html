@@ -1,6 +1,4 @@
-From nginx
-maintainer gayathri
+from nginx
+label my proposal
 expose 80
-label proposal
 copy index.html /usr/share/nginx/html/
-
