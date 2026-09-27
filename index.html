@@ -1,738 +1,1297 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Until You Come Back ❤️</title>
+    <title>For Tanay ❤️</title>
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <style>
 
-    body {
-        min-height: 100vh;
-        font-family: "Segoe UI", sans-serif;
-        background:
-            radial-gradient(circle at 20% 20%, rgba(255, 80, 150, 0.25), transparent 30%),
-            radial-gradient(circle at 80% 80%, rgba(170, 50, 255, 0.25), transparent 30%),
-            linear-gradient(135deg, #100018, #35052f, #65083f);
-
-        color: white;
-        overflow-x: hidden;
-    }
-
-    /* Background glowing circles */
-
-    body::before {
-        content: "";
-        position: fixed;
-        width: 450px;
-        height: 450px;
-        background: rgba(255, 70, 150, 0.18);
-        filter: blur(100px);
-        border-radius: 50%;
-        top: -150px;
-        left: -150px;
-        z-index: 0;
-    }
-
-    body::after {
-        content: "";
-        position: fixed;
-        width: 450px;
-        height: 450px;
-        background: rgba(150, 60, 255, 0.18);
-        filter: blur(100px);
-        border-radius: 50%;
-        bottom: -150px;
-        right: -150px;
-        z-index: 0;
-    }
-
-    /* Main container */
-
-    .container {
-        position: relative;
-        z-index: 2;
-
-        min-height: 100vh;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        padding: 30px 15px;
-    }
-
-    /* Glass card */
-
-    .card {
-        width: 100%;
-        max-width: 850px;
-
-        padding: 55px 35px;
-
-        text-align: center;
-
-        background: rgba(255, 255, 255, 0.08);
-
-        border: 1px solid rgba(255, 255, 255, 0.2);
-
-        border-radius: 30px;
-
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-
-        box-shadow:
-            0 30px 80px rgba(0, 0, 0, 0.45),
-            inset 0 0 30px rgba(255, 255, 255, 0.04);
-    }
-
-    /* Heart */
-
-    .heart {
-        font-size: 75px;
-
-        margin-bottom: 15px;
-
-        animation: heartbeat 1.5s infinite;
-    }
-
-    @keyframes heartbeat {
-
-        0%,
-        100% {
-            transform: scale(1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        25% {
-            transform: scale(1.15);
+        html {
+            scroll-behavior: smooth;
         }
 
-        40% {
-            transform: scale(1);
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #08000f;
+            color: white;
+            overflow-x: hidden;
         }
 
-        60% {
-            transform: scale(1.12);
+
+        /* =====================================================
+           INTRO SCREEN
+        ===================================================== */
+
+        #intro {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            background:
+                radial-gradient(circle at center,
+                #5e164f 0%,
+                #210024 40%,
+                #08000f 100%);
+
+            transition: 1.5s ease;
         }
-    }
 
-    /* Heading */
+        .intro-heart {
+            font-size: 90px;
+            animation: heartbeat 1.2s infinite;
+            filter: drop-shadow(0 0 30px #ff3d9a);
+        }
 
-    h1 {
-        font-size: clamp(42px, 7vw, 75px);
+        .intro-text {
+            margin-top: 25px;
+            font-size: 22px;
+            letter-spacing: 4px;
+            color: #ffd6ed;
+            animation: fadeIn 2s ease;
+        }
 
-        font-weight: 700;
+        .intro-name {
+            margin-top: 15px;
+            font-size: 60px;
+            font-weight: 800;
 
-        background:
-            linear-gradient(
+            background: linear-gradient(
                 90deg,
-                #ffb4d8,
+                #ff75b9,
                 #ffffff,
-                #ff75b7
+                #ff3f9d
             );
 
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
 
-        margin-bottom: 15px;
-    }
+            animation: glowText 2s infinite alternate;
+        }
 
-    .subtitle {
-        font-size: 21px;
+        .enter-btn {
+            margin-top: 45px;
 
-        color: #ffd7e9;
+            padding: 15px 40px;
 
-        margin-bottom: 35px;
-    }
+            border: none;
+            border-radius: 50px;
 
-    /* Main message */
-
-    .message {
-        max-width: 680px;
-
-        margin: auto;
-
-        font-size: 19px;
-
-        line-height: 1.9;
-
-        color: #ffeaf4;
-    }
-
-    .highlight {
-        color: #ff9dcc;
-
-        font-weight: bold;
-    }
-
-    /* Divider */
-
-    .divider {
-        width: 110px;
-
-        height: 3px;
-
-        margin: 38px auto;
-
-        background:
-            linear-gradient(
-                90deg,
-                transparent,
-                #ff70ad,
-                transparent
-            );
-    }
-
-    /* Letter */
-
-    .letter {
-        max-width: 680px;
-
-        margin: 30px auto;
-
-        padding: 32px;
-
-        background: rgba(255, 255, 255, 0.07);
-
-        border-radius: 22px;
-
-        border-left: 3px solid #ff6fae;
-
-        border-right: 3px solid #ff6fae;
-
-        box-shadow:
-            inset 0 0 30px rgba(255, 100, 180, 0.04);
-    }
-
-    .letter p {
-        font-family: Georgia, serif;
-
-        font-size: 20px;
-
-        line-height: 1.9;
-
-        font-style: italic;
-
-        color: #fff0f7;
-    }
-
-    /* Waiting section */
-
-    .waiting {
-        margin-top: 40px;
-    }
-
-    .waiting h2 {
-        font-size: 30px;
-
-        margin-bottom: 15px;
-
-        color: #ffabd0;
-    }
-
-    .waiting p {
-        font-size: 18px;
-
-        line-height: 1.8;
-
-        color: #ffe5f0;
-    }
-
-    /* Button */
-
-    .button {
-        display: inline-block;
-
-        margin-top: 35px;
-
-        padding: 15px 38px;
-
-        border-radius: 50px;
-
-        text-decoration: none;
-
-        color: white;
-
-        font-size: 17px;
-
-        font-weight: bold;
-
-        background:
-            linear-gradient(
+            background: linear-gradient(
                 135deg,
-                #ff4f9a,
-                #c62cff
+                #ff3d9a,
+                #9d27ff
             );
 
-        box-shadow:
-            0 10px 30px rgba(255, 50, 150, 0.35);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
 
-        transition: 0.3s;
-    }
+            cursor: pointer;
 
-    .button:hover {
-        transform: translateY(-5px) scale(1.05);
+            box-shadow:
+                0 0 20px rgba(255, 61, 154, .5);
 
-        box-shadow:
-            0 15px 40px rgba(255, 50, 150, 0.55);
-    }
-
-    /* Signature */
-
-    .signature {
-        margin-top: 45px;
-
-        font-size: 17px;
-
-        line-height: 1.8;
-
-        color: #ffbddb;
-    }
-
-    .signature span {
-        display: block;
-
-        margin-top: 8px;
-
-        font-size: 28px;
-
-        color: #ffffff;
-    }
-
-    /* Floating hearts */
-
-    .floating-heart {
-        position: fixed;
-
-        bottom: -50px;
-
-        font-size: 25px;
-
-        animation:
-            floatUp linear infinite;
-
-        opacity: 0.7;
-
-        z-index: 1;
-
-        pointer-events: none;
-    }
-
-    @keyframes floatUp {
-
-        0% {
-            transform:
-                translateY(0)
-                rotate(0deg);
-
-            opacity: 0;
+            transition: .3s;
         }
 
-        20% {
-            opacity: 0.8;
+        .enter-btn:hover {
+            transform: scale(1.1);
+            box-shadow:
+                0 0 40px rgba(255, 61, 154, .9);
         }
 
-        100% {
-            transform:
-                translateY(-110vh)
-                rotate(360deg);
 
-            opacity: 0;
-        }
-    }
+        /* =====================================================
+           MAIN BACKGROUND
+        ===================================================== */
 
-    .h1 {
-        left: 5%;
-        animation-duration: 9s;
-    }
+        .main {
+            min-height: 100vh;
 
-    .h2 {
-        left: 15%;
-        animation-duration: 12s;
-        animation-delay: 2s;
-    }
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255, 48, 160, .25),
+                    transparent 30%
+                ),
 
-    .h3 {
-        left: 30%;
-        animation-duration: 10s;
-        animation-delay: 4s;
-    }
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(131, 35, 255, .25),
+                    transparent 30%
+                ),
 
-    .h4 {
-        left: 50%;
-        animation-duration: 13s;
-        animation-delay: 1s;
-    }
-
-    .h5 {
-        left: 70%;
-        animation-duration: 11s;
-        animation-delay: 3s;
-    }
-
-    .h6 {
-        left: 85%;
-        animation-duration: 14s;
-        animation-delay: 5s;
-    }
-
-    /* Small stars */
-
-    .star {
-        position: fixed;
-
-        color: #ffffff;
-
-        opacity: 0.5;
-
-        animation: twinkle 2s infinite alternate;
-
-        z-index: 1;
-    }
-
-    @keyframes twinkle {
-
-        from {
-            opacity: 0.2;
-            transform: scale(0.8);
+                linear-gradient(
+                    135deg,
+                    #090014,
+                    #26002c,
+                    #10001d
+                );
         }
 
-        to {
-            opacity: 1;
-            transform: scale(1.2);
-        }
-    }
 
-    .s1 {
-        top: 12%;
-        left: 8%;
-    }
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
 
-    .s2 {
-        top: 25%;
-        right: 10%;
-    }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
 
-    .s3 {
-        top: 70%;
-        left: 8%;
-    }
+            padding: 18px 7%;
 
-    .s4 {
-        top: 80%;
-        right: 12%;
-    }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-    /* Mobile */
+            z-index: 100;
 
-    @media (max-width: 600px) {
-
-        .container {
-            padding: 20px 12px;
+            background: rgba(0,0,0,.25);
+            backdrop-filter: blur(15px);
         }
 
-        .card {
-            padding: 40px 20px;
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff8bc7;
         }
+
+        .logo span {
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ff7fbd;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 120px 20px 70px;
+
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .small-text {
+            font-size: 17px;
+            letter-spacing: 5px;
+            color: #ff9ccc;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 10vw, 120px);
+            line-height: .95;
+
+            background: linear-gradient(
+                90deg,
+                #ff55a8,
+                #fff,
+                #ff6fbd,
+                #b83cff
+            );
+
+            background-size: 300%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: gradientMove 5s infinite;
+        }
+
+        .hero h2 {
+            margin-top: 25px;
+            font-size: clamp(25px, 4vw, 42px);
+            font-weight: 400;
+            color: #ffe3f1;
+        }
+
+        .hero p {
+            margin: 30px auto;
+            max-width: 650px;
+
+            font-size: 19px;
+            line-height: 1.8;
+
+            color: #eacfe0;
+        }
+
+        .scroll {
+            margin-top: 50px;
+            animation: bounce 2s infinite;
+            color: #ff9ccc;
+        }
+
+
+        /* =====================================================
+           SECTION
+        ===================================================== */
+
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #dcbdd0;
+            margin-bottom: 60px;
+        }
+
+
+        /* =====================================================
+           LOVE CARD
+        ===================================================== */
+
+        .love-card {
+            max-width: 850px;
+            margin: auto;
+
+            padding: 55px 45px;
+
+            background: rgba(255,255,255,.06);
+
+            border: 1px solid rgba(255,255,255,.15);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.4);
+        }
+
+        .love-card p {
+            font-family: Georgia, serif;
+
+            font-size: 22px;
+
+            line-height: 2;
+
+            color: #ffeaf5;
+
+            text-align: center;
+        }
+
+        .pink {
+            color: #ff72b7;
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           WAITING
+        ===================================================== */
+
+        .waiting-section {
+            text-align: center;
+        }
+
+        .big-heart {
+            font-size: 100px;
+
+            animation: heartbeat 1.3s infinite;
+
+            filter:
+                drop-shadow(0 0 20px #ff3d9a);
+        }
+
+        .waiting-section h2 {
+            font-size: 48px;
+            margin: 25px 0;
+
+            color: #ff9ccc;
+        }
+
+        .waiting-section p {
+            max-width: 700px;
+            margin: auto;
+
+            color: #dec4d5;
+
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           REASONS
+        ===================================================== */
+
+        .reasons {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+
+            max-width: 1000px;
+
+            margin: auto;
+        }
+
+        .reason {
+            padding: 35px 25px;
+
+            text-align: center;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.09),
+                    rgba(255,255,255,.03)
+                );
+
+            border: 1px solid rgba(255,255,255,.12);
+
+            transition: .4s;
+        }
+
+        .reason:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 20px 40px rgba(255, 45, 150, .2);
+        }
+
+        .reason .emoji {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .reason h3 {
+            color: #ff9dca;
+            margin-bottom: 12px;
+        }
+
+        .reason p {
+            color: #cdb8c9;
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           SURPRISE
+        ===================================================== */
+
+        .surprise {
+            text-align: center;
+        }
+
+        .surprise-box {
+            max-width: 700px;
+            margin: auto;
+
+            padding: 60px 30px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,60,160,.15),
+                    rgba(150,40,255,.15)
+                );
+
+            border: 1px solid rgba(255,255,255,.15);
+        }
+
+        .gift {
+            font-size: 80px;
+
+            animation:
+                shake 2s infinite;
+        }
+
+        .surprise-box h2 {
+            margin: 25px 0;
+
+            font-size: 36px;
+        }
+
+        .surprise-btn {
+            margin-top: 30px;
+
+            padding: 16px 38px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff3d9a,
+                    #9d27ff
+                );
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .surprise-btn:hover {
+            transform: scale(1.08);
+        }
+
+
+        /* =====================================================
+           FINAL MESSAGE
+        ===================================================== */
+
+        #finalMessage {
+            display: none;
+
+            margin-top: 40px;
+
+            animation: fadeIn 1s ease;
+        }
+
+        #finalMessage h2 {
+            color: #ff78b9;
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        #finalMessage p {
+            font-family: Georgia, serif;
+            font-size: 23px;
+            line-height: 1.8;
+            color: #ffeaf4;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 60px 20px;
+
+            text-align: center;
+
+            background: rgba(0,0,0,.25);
+
+            color: #a995a5;
+        }
+
+        footer span {
+            color: #ff72b7;
+        }
+
+
+        /* =====================================================
+           FLOATING HEARTS
+        ===================================================== */
 
         .heart {
-            font-size: 58px;
+            position: fixed;
+
+            bottom: -50px;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            animation:
+                floatUp linear infinite;
+
+            opacity: .7;
         }
 
-        .subtitle {
-            font-size: 18px;
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes heartbeat {
+
+            0%,100% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.2);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.15);
+            }
         }
 
-        .message {
-            font-size: 17px;
-            line-height: 1.8;
+
+        @keyframes floatUp {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: .8;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
         }
 
-        .letter {
-            padding: 22px 18px;
+
+        @keyframes gradientMove {
+
+            0% {
+                background-position: 0%;
+            }
+
+            50% {
+                background-position: 100%;
+            }
+
+            100% {
+                background-position: 0%;
+            }
         }
 
-        .letter p {
-            font-size: 18px;
-            line-height: 1.8;
+
+        @keyframes glowText {
+
+            from {
+                filter:
+                    drop-shadow(
+                        0 0 5px #ff4fa5
+                    );
+            }
+
+            to {
+                filter:
+                    drop-shadow(
+                        0 0 25px #ff4fa5
+                    );
+            }
         }
 
-        .waiting h2 {
-            font-size: 25px;
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .waiting p {
-            font-size: 16px;
+
+        @keyframes bounce {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(12px);
+            }
         }
 
-        .button {
-            padding: 14px 30px;
-        }
-    }
-</style>
-```
 
+        @keyframes shake {
+
+            0%,100% {
+                transform: rotate(0);
+            }
+
+            25% {
+                transform: rotate(-8deg);
+            }
+
+            75% {
+                transform: rotate(8deg);
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media(max-width:650px) {
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav div:last-child {
+                display: none;
+            }
+
+            .intro-name {
+                font-size: 45px;
+            }
+
+            .love-card {
+                padding: 35px 22px;
+            }
+
+            .love-card p {
+                font-size: 18px;
+            }
+
+            .waiting-section h2 {
+                font-size: 35px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-```
-<!-- Floating Hearts -->
 
-<div class="floating-heart h1">❤️</div>
-<div class="floating-heart h2">💗</div>
-<div class="floating-heart h3">💕</div>
-<div class="floating-heart h4">❤️</div>
-<div class="floating-heart h5">💖</div>
-<div class="floating-heart h6">💞</div>
+<!-- =====================================================
+     INTRO
+===================================================== -->
 
+<div id="intro">
 
-<!-- Stars -->
-
-<div class="star s1">✦</div>
-<div class="star s2">✧</div>
-<div class="star s3">✦</div>
-<div class="star s4">✧</div>
-
-
-<!-- Main -->
-
-<div class="container">
-
-    <div class="card">
-
-        <!-- Heart -->
-
-        <div class="heart">
-            ❤️
-        </div>
-
-
-        <!-- Heading -->
-
-        <h1>
-            Until You Come Back
-        </h1>
-
-        <div class="subtitle">
-            Take care of Mom... I'll be here waiting for you 🥺💕
-        </div>
-
-
-        <!-- Message -->
-
-        <div class="message">
-
-            <p>
-                I know you had to go home, and I completely
-                understand why. Right now, your family needs you,
-                especially your mom. ❤️
-            </p>
-
-            <br>
-
-            <p>
-                But honestly...
-                I already miss you so much.
-                One month feels like such a long time when the
-                person you want beside you isn't here.
-            </p>
-
-            <br>
-
-            <p>
-                I miss your voice.
-                I miss our conversations.
-                I miss seeing you.
-                I even miss those little things about you
-                that I never thought I would miss this much.
-                🥺
-            </p>
-
-            <br>
-
-            <p>
-                But please don't worry about me.
-                <span class="highlight">
-                    Your mom needs you right now.
-                </span>
-                Be there for her, take care of her,
-                and give her all the love you can.
-            </p>
-
-            <br>
-
-            <p>
-                I'll be right here...
-                waiting for you,
-                thinking about you,
-                and cheering for you from here. ❤️
-            </p>
-
-        </div>
-
-
-        <!-- Divider -->
-
-        <div class="divider"></div>
-
-
-        <!-- Love Letter -->
-
-        <div class="letter">
-
-            <p>
-
-                My Love, ❤️
-
-                <br><br>
-
-                I know this month is going to feel long for both of us.
-
-                <br><br>
-
-                I know you need to be with your mom right now,
-                and I want you to know that I completely understand.
-                There is nowhere else you should be right now
-                except beside your family.
-
-                <br><br>
-
-                So don't ever feel bad for being away from me.
-
-                <br><br>
-
-                Take care of her.
-                Hold her hand.
-                Make her smile.
-                Stay beside her whenever she needs you.
-
-                <br><br>
-
-                And whenever you feel tired,
-                stressed,
-                or you simply miss me...
-
-                <br><br>
-
-                Remember that there is someone here
-                thinking about you every single day. ❤️
-
-                <br><br>
-
-                I may not be able to sit beside you,
-                hold your hand,
-                or give you a hug right now...
-
-                <br><br>
-
-                But my heart is always with you.
-
-                <br><br>
-
-                So take care of your mom,
-                take care of yourself,
-                and come back to me safely.
-
-                <br><br>
-
-                I'll be waiting for that smile.
-                I'll be waiting for that hug.
-
-                <br><br>
-
-                Most importantly...
-
-                <br>
-
-                I'll be waiting for YOU. ❤️
-
-            </p>
-
-        </div>
-
-
-        <!-- Waiting -->
-
-        <div class="waiting">
-
-            <h2>
-                One Month Without You... 🥺❤️
-            </h2>
-
-            <p>
-                It might feel like a long month,
-                but I'll count the days until you're back.
-            </p>
-
-            <br>
-
-            <p>
-                Until then,
-                my love is going with you wherever you go. 💕
-            </p>
-
-        </div>
-
-
-        <!-- Button -->
-
-        <a
-            href="#"
-            class="button"
-            onclick="showLove(); return false;"
-        >
-            Click Here, My Love ❤️
-        </a>
-
-
-        <!-- Signature -->
-
-        <div class="signature">
-
-            Take care of yourself and your mom. ❤️
-
-            <br>
-
-            I'll be here waiting for you...
-
-            <span>
-                Come back to me soon ❤️
-            </span>
-
-        </div>
-
+    <div class="intro-heart">
+        ❤️
     </div>
+
+    <div class="intro-text">
+        THIS LITTLE SURPRISE IS FOR
+    </div>
+
+    <div class="intro-name">
+        TANAY
+    </div>
+
+    <button
+        class="enter-btn"
+        onclick="enterLove()">
+
+        Open My Heart ❤️
+
+    </button>
 
 </div>
 
 
-<!-- JavaScript -->
+
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
+<div class="main">
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            For <span>Tanay</span> ❤️
+        </div>
+
+        <div>
+
+            <a href="#message">
+                My Message
+            </a>
+
+            <a href="#waiting">
+                Waiting
+            </a>
+
+            <a href="#surprise">
+                Surprise
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-text">
+                THERE'S SOMETHING I WANT TO TELL YOU...
+            </div>
+
+            <h1>
+                TANAY
+            </h1>
+
+            <h2>
+                I Miss You Sooooo Much ❤️
+            </h2>
+
+            <p>
+
+                If missing someone had a limit,
+                I think I crossed that limit a long time ago.
+
+                <br><br>
+
+                Every little thing somehow reminds me of you.
+
+            </p>
+
+            <div class="scroll">
+                ↓ Keep scrolling... I have something for you ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- MESSAGE -->
+
+    <section id="message">
+
+        <h2 class="section-title">
+            A Little Message For You 💌
+        </h2>
+
+        <p class="section-subtitle">
+            Something I've been wanting to say...
+        </p>
+
+
+        <div class="love-card">
+
+            <p>
+
+                Dear <span class="pink">Tanay</span>,
+
+                <br><br>
+
+                I don't know how you managed to become
+                such an important part of my thoughts...
+
+                but somehow,
+
+                <span class="pink">
+                    you are always there.
+                </span>
+
+                <br><br>
+
+                When I'm happy,
+                I want to tell you.
+
+                <br>
+
+                When something funny happens,
+                I want to tell you.
+
+                <br>
+
+                And when I miss you...
+
+                well...
+
+                <span class="pink">
+                    I REALLY miss you. 🥺
+                </span>
+
+                <br><br>
+
+                I wish I could magically appear next to you
+                right now, give you the biggest hug,
+                and just stay there for a while.
+
+                <br><br>
+
+                Until that happens...
+
+                I'll just keep waiting for you.
+
+                ❤️
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- WAITING -->
+
+    <section id="waiting"
+             class="waiting-section">
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <h2>
+            I'm Waiting For You...
+        </h2>
+
+        <p>
+
+            Not because I have nothing else to do.
+
+            <br>
+
+            But because seeing you,
+            talking to you,
+            and being with you...
+
+            is something I genuinely look forward to.
+
+            <br><br>
+
+            So wherever you are right now...
+
+            <strong style="color:#ff8fc5;">
+                come back soon, Tanay.
+            </strong>
+
+        </p>
+
+    </section>
+
+
+
+    <!-- REASONS -->
+
+    <section>
+
+        <h2 class="section-title">
+            Things I Miss About You 💕
+        </h2>
+
+        <p class="section-subtitle">
+            And yes... there are MANY.
+        </p>
+
+
+        <div class="reasons">
+
+
+            <div class="reason">
+
+                <div class="emoji">
+                    😊
+                </div>
+
+                <h3>
+                    Your Smile
+                </h3>
+
+                <p>
+                    Somehow your smile can make
+                    everything feel a little better.
+                </p>
+
+            </div>
+
+
+
+            <div class="reason">
+
+                <div class="emoji">
+                    🥺
+                </div>
+
+                <h3>
+                    Your Presence
+                </h3>
+
+                <p>
+                    Sometimes I don't even need words.
+                    Just having you around is enough.
+                </p>
+
+            </div>
+
+
+
+            <div class="reason">
+
+                <div class="emoji">
+                    💬
+                </div>
+
+                <h3>
+                    Our Conversations
+                </h3>
+
+                <p>
+                    I miss those random conversations
+                    that somehow become my favorite part
+                    of the day.
+                </p>
+
+            </div>
+
+
+
+            <div class="reason">
+
+                <div class="emoji">
+                    ❤️
+                </div>
+
+                <h3>
+                    Just You
+                </h3>
+
+                <p>
+                    Honestly...
+
+                    I don't need a reason.
+
+                    I just miss YOU.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- SURPRISE -->
+
+    <section id="surprise"
+             class="surprise">
+
+        <div class="surprise-box">
+
+            <div class="gift">
+                🎁
+            </div>
+
+            <h2>
+                Tanay... I Have One More Thing
+            </h2>
+
+            <p>
+                Are you ready? ❤️
+            </p>
+
+            <button
+                class="surprise-btn"
+                onclick="showSurprise()">
+
+                Open Your Surprise 💗
+
+            </button>
+
+
+            <div id="finalMessage">
+
+                <h2>
+                    You Are Special To Me ❤️
+                </h2>
+
+                <p>
+
+                    Tanay,
+
+                    <br><br>
+
+                    Out of all the people in this world...
+
+                    somehow my heart chose you.
+
+                    <br><br>
+
+                    And right now,
+                    there's only one thing I want...
+
+                    <br><br>
+
+                    <strong>
+                        To see you again,
+                        hug you,
+                        and never let go too quickly. 🥺❤️
+                    </strong>
+
+                    <br><br>
+
+                    Until then...
+
+                    remember that somewhere,
+                    someone is thinking about you
+                    way more than you realize.
+
+                    <br><br>
+
+                    ❤️❤️❤️
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        Made with lots of love,
+
+        <span>
+            just for Tanay ❤️
+        </span>
+
+        <br><br>
+
+        <small>
+            Because some people are worth waiting for.
+        </small>
+
+    </footer>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-    function showLove() {
 
-        alert(
-            "I miss you so much! ❤️\n\n" +
-            "Take care of your mom and yourself. 🥺💕\n\n" +
-            "Don't worry about me...\n" +
-            "I'll be right here waiting for you.\n\n" +
-            "Come back safely, my love. ❤️"
-        );
+    /* INTRO */
+
+    function enterLove() {
+
+        const intro =
+            document.getElementById("intro");
+
+        intro.style.opacity = "0";
+
+        setTimeout(() => {
+
+            intro.style.display = "none";
+
+        }, 1500);
 
     }
 
+
+
+    /* SURPRISE */
+
+    function showSurprise() {
+
+        const message =
+            document.getElementById("finalMessage");
+
+        message.style.display = "block";
+
+        createExplosion();
+
+        message.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+
+    /* FLOATING HEARTS */
+
+    function createHeart() {
+
+        const heart =
+            document.createElement("div");
+
+        heart.classList.add("heart");
+
+        const hearts = [
+            "❤️",
+            "💗",
+            "💖",
+            "💕",
+            "💓",
+            "💞",
+            "💘"
+        ];
+
+        heart.innerHTML =
+            hearts[
+                Math.floor(
+                    Math.random() * hearts.length
+                )
+            ];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 30) + "px";
+
+        heart.style.animationDuration =
+            (6 + Math.random() * 8) + "s";
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        }, 14000);
+
+    }
+
+
+    setInterval(createHeart, 500);
+
+
+
+    /* HEART EXPLOSION */
+
+    function createExplosion() {
+
+        for (let i = 0; i < 35; i++) {
+
+            const heart =
+                document.createElement("div");
+
+            heart.innerHTML = "❤️";
+
+            heart.style.position = "fixed";
+
+            heart.style.left = "50%";
+            heart.style.top = "50%";
+
+            heart.style.fontSize =
+                (15 + Math.random() * 25) + "px";
+
+            heart.style.zIndex = "10000";
+
+            heart.style.pointerEvents = "none";
+
+            const x =
+                (Math.random() - .5) * 600;
+
+            const y =
+                (Math.random() - .5) * 600;
+
+            heart.animate(
+                [
+                    {
+                        transform: "translate(-50%, -50%) scale(0)",
+                        opacity: 1
+                    },
+
+                    {
+                        transform:
+                            `translate(${x}px, ${y}px) scale(1.5)`,
+                        opacity: 0
+                    }
+                ],
+                {
+                    duration: 1800,
+                    easing: "ease-out"
+                }
+            );
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 1800);
+
+        }
+
+    }
+
+
 </script>
-```
 
 </body>
 </html>
