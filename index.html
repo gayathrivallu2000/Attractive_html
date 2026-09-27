@@ -1,367 +1,738 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Missing You ❤️</title>
+```
+<title>Until You Come Back ❤️</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: "Segoe UI", sans-serif;
+        background:
+            radial-gradient(circle at 20% 20%, rgba(255, 80, 150, 0.25), transparent 30%),
+            radial-gradient(circle at 80% 80%, rgba(170, 50, 255, 0.25), transparent 30%),
+            linear-gradient(135deg, #100018, #35052f, #65083f);
+
+        color: white;
+        overflow-x: hidden;
+    }
+
+    /* Background glowing circles */
+
+    body::before {
+        content: "";
+        position: fixed;
+        width: 450px;
+        height: 450px;
+        background: rgba(255, 70, 150, 0.18);
+        filter: blur(100px);
+        border-radius: 50%;
+        top: -150px;
+        left: -150px;
+        z-index: 0;
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        width: 450px;
+        height: 450px;
+        background: rgba(150, 60, 255, 0.18);
+        filter: blur(100px);
+        border-radius: 50%;
+        bottom: -150px;
+        right: -150px;
+        z-index: 0;
+    }
+
+    /* Main container */
+
+    .container {
+        position: relative;
+        z-index: 2;
+
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 30px 15px;
+    }
+
+    /* Glass card */
+
+    .card {
+        width: 100%;
+        max-width: 850px;
+
+        padding: 55px 35px;
+
+        text-align: center;
+
+        background: rgba(255, 255, 255, 0.08);
+
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        border-radius: 30px;
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        box-shadow:
+            0 30px 80px rgba(0, 0, 0, 0.45),
+            inset 0 0 30px rgba(255, 255, 255, 0.04);
+    }
+
+    /* Heart */
+
+    .heart {
+        font-size: 75px;
+
+        margin-bottom: 15px;
+
+        animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+
+        0%,
+        100% {
+            transform: scale(1);
         }
 
-        body {
-            min-height: 100vh;
-            font-family: "Segoe UI", sans-serif;
-            background: linear-gradient(135deg, #12001f, #3b0a45, #750d48);
-            color: white;
-            overflow-x: hidden;
+        25% {
+            transform: scale(1.15);
         }
 
-        /* Background glow */
-        body::before {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 50, 140, 0.25);
-            filter: blur(100px);
-            border-radius: 50%;
-            top: -150px;
-            left: -150px;
+        40% {
+            transform: scale(1);
         }
 
-        body::after {
-            content: "";
-            position: fixed;
-            width: 450px;
-            height: 450px;
-            background: rgba(150, 50, 255, 0.2);
-            filter: blur(100px);
-            border-radius: 50%;
-            bottom: -150px;
-            right: -150px;
+        60% {
+            transform: scale(1.12);
         }
+    }
+
+    /* Heading */
+
+    h1 {
+        font-size: clamp(42px, 7vw, 75px);
+
+        font-weight: 700;
+
+        background:
+            linear-gradient(
+                90deg,
+                #ffb4d8,
+                #ffffff,
+                #ff75b7
+            );
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        margin-bottom: 15px;
+    }
+
+    .subtitle {
+        font-size: 21px;
+
+        color: #ffd7e9;
+
+        margin-bottom: 35px;
+    }
+
+    /* Main message */
+
+    .message {
+        max-width: 680px;
+
+        margin: auto;
+
+        font-size: 19px;
+
+        line-height: 1.9;
+
+        color: #ffeaf4;
+    }
+
+    .highlight {
+        color: #ff9dcc;
+
+        font-weight: bold;
+    }
+
+    /* Divider */
+
+    .divider {
+        width: 110px;
+
+        height: 3px;
+
+        margin: 38px auto;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                #ff70ad,
+                transparent
+            );
+    }
+
+    /* Letter */
+
+    .letter {
+        max-width: 680px;
+
+        margin: 30px auto;
+
+        padding: 32px;
+
+        background: rgba(255, 255, 255, 0.07);
+
+        border-radius: 22px;
+
+        border-left: 3px solid #ff6fae;
+
+        border-right: 3px solid #ff6fae;
+
+        box-shadow:
+            inset 0 0 30px rgba(255, 100, 180, 0.04);
+    }
+
+    .letter p {
+        font-family: Georgia, serif;
+
+        font-size: 20px;
+
+        line-height: 1.9;
+
+        font-style: italic;
+
+        color: #fff0f7;
+    }
+
+    /* Waiting section */
+
+    .waiting {
+        margin-top: 40px;
+    }
+
+    .waiting h2 {
+        font-size: 30px;
+
+        margin-bottom: 15px;
+
+        color: #ffabd0;
+    }
+
+    .waiting p {
+        font-size: 18px;
+
+        line-height: 1.8;
+
+        color: #ffe5f0;
+    }
+
+    /* Button */
+
+    .button {
+        display: inline-block;
+
+        margin-top: 35px;
+
+        padding: 15px 38px;
+
+        border-radius: 50px;
+
+        text-decoration: none;
+
+        color: white;
+
+        font-size: 17px;
+
+        font-weight: bold;
+
+        background:
+            linear-gradient(
+                135deg,
+                #ff4f9a,
+                #c62cff
+            );
+
+        box-shadow:
+            0 10px 30px rgba(255, 50, 150, 0.35);
+
+        transition: 0.3s;
+    }
+
+    .button:hover {
+        transform: translateY(-5px) scale(1.05);
+
+        box-shadow:
+            0 15px 40px rgba(255, 50, 150, 0.55);
+    }
+
+    /* Signature */
+
+    .signature {
+        margin-top: 45px;
+
+        font-size: 17px;
+
+        line-height: 1.8;
+
+        color: #ffbddb;
+    }
+
+    .signature span {
+        display: block;
+
+        margin-top: 8px;
+
+        font-size: 28px;
+
+        color: #ffffff;
+    }
+
+    /* Floating hearts */
+
+    .floating-heart {
+        position: fixed;
+
+        bottom: -50px;
+
+        font-size: 25px;
+
+        animation:
+            floatUp linear infinite;
+
+        opacity: 0.7;
+
+        z-index: 1;
+
+        pointer-events: none;
+    }
+
+    @keyframes floatUp {
+
+        0% {
+            transform:
+                translateY(0)
+                rotate(0deg);
+
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 0.8;
+        }
+
+        100% {
+            transform:
+                translateY(-110vh)
+                rotate(360deg);
+
+            opacity: 0;
+        }
+    }
+
+    .h1 {
+        left: 5%;
+        animation-duration: 9s;
+    }
+
+    .h2 {
+        left: 15%;
+        animation-duration: 12s;
+        animation-delay: 2s;
+    }
+
+    .h3 {
+        left: 30%;
+        animation-duration: 10s;
+        animation-delay: 4s;
+    }
+
+    .h4 {
+        left: 50%;
+        animation-duration: 13s;
+        animation-delay: 1s;
+    }
+
+    .h5 {
+        left: 70%;
+        animation-duration: 11s;
+        animation-delay: 3s;
+    }
+
+    .h6 {
+        left: 85%;
+        animation-duration: 14s;
+        animation-delay: 5s;
+    }
+
+    /* Small stars */
+
+    .star {
+        position: fixed;
+
+        color: #ffffff;
+
+        opacity: 0.5;
+
+        animation: twinkle 2s infinite alternate;
+
+        z-index: 1;
+    }
+
+    @keyframes twinkle {
+
+        from {
+            opacity: 0.2;
+            transform: scale(0.8);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+    }
+
+    .s1 {
+        top: 12%;
+        left: 8%;
+    }
+
+    .s2 {
+        top: 25%;
+        right: 10%;
+    }
+
+    .s3 {
+        top: 70%;
+        left: 8%;
+    }
+
+    .s4 {
+        top: 80%;
+        right: 12%;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 600px) {
 
         .container {
-            position: relative;
-            z-index: 2;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px 15px;
+            padding: 20px 12px;
         }
 
         .card {
-            width: 100%;
-            max-width: 850px;
-            padding: 55px 35px;
-            text-align: center;
-
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 30px;
-
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-
-            box-shadow:
-                0 25px 80px rgba(0,0,0,0.4),
-                inset 0 0 30px rgba(255,255,255,0.04);
+            padding: 40px 20px;
         }
 
         .heart {
-            font-size: 70px;
-            animation: heartbeat 1.4s infinite;
-            margin-bottom: 15px;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            25% {
-                transform: scale(1.15);
-            }
-
-            40% {
-                transform: scale(1);
-            }
-
-            60% {
-                transform: scale(1.12);
-            }
-        }
-
-        h1 {
-            font-size: clamp(40px, 7vw, 75px);
-            font-weight: 700;
-            background: linear-gradient(90deg, #ffb6d9, #fff, #ff72b5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
+            font-size: 58px;
         }
 
         .subtitle {
-            font-size: 22px;
-            color: #ffd8eb;
-            margin-bottom: 35px;
+            font-size: 18px;
         }
 
         .message {
-            max-width: 650px;
-            margin: auto;
-            font-size: 19px;
-            line-height: 1.9;
-            color: #ffeaf4;
-        }
-
-        .highlight {
-            color: #ff9dcc;
-            font-weight: bold;
-        }
-
-        .divider {
-            width: 100px;
-            height: 3px;
-            margin: 35px auto;
-            background: linear-gradient(90deg, transparent, #ff70ad, transparent);
+            font-size: 17px;
+            line-height: 1.8;
         }
 
         .letter {
-            margin: 30px auto;
-            max-width: 650px;
-            padding: 30px;
-
-            background: rgba(255,255,255,0.07);
-            border-radius: 20px;
-
-            border-left: 3px solid #ff6fae;
-            border-right: 3px solid #ff6fae;
+            padding: 22px 18px;
         }
 
         .letter p {
-            font-family: Georgia, serif;
-            font-size: 21px;
+            font-size: 18px;
             line-height: 1.8;
-            font-style: italic;
-            color: #fff0f7;
-        }
-
-        .waiting {
-            margin-top: 35px;
         }
 
         .waiting h2 {
-            font-size: 30px;
-            margin-bottom: 12px;
-            color: #ffabd0;
+            font-size: 25px;
         }
 
         .waiting p {
-            font-size: 18px;
-            color: #ffe5f0;
+            font-size: 16px;
         }
 
         .button {
-            display: inline-block;
-            margin-top: 35px;
-            padding: 15px 35px;
-
-            border-radius: 50px;
-            text-decoration: none;
-
-            color: white;
-            font-size: 17px;
-            font-weight: bold;
-
-            background: linear-gradient(135deg, #ff4f9a, #c62cff);
-
-            box-shadow: 0 10px 30px rgba(255, 50, 150, 0.35);
-
-            transition: 0.3s;
+            padding: 14px 30px;
         }
+    }
+</style>
+```
 
-        .button:hover {
-            transform: translateY(-4px) scale(1.04);
-            box-shadow: 0 15px 40px rgba(255, 50, 150, 0.55);
-        }
-
-        .signature {
-            margin-top: 40px;
-            font-size: 18px;
-            color: #ffbddb;
-        }
-
-        .signature span {
-            display: block;
-            font-size: 30px;
-            margin-top: 8px;
-        }
-
-        /* Floating hearts */
-
-        .floating-heart {
-            position: fixed;
-            bottom: -50px;
-            font-size: 25px;
-            animation: floatUp linear infinite;
-            opacity: 0.7;
-            z-index: 1;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-
-            20% {
-                opacity: 0.8;
-            }
-
-            100% {
-                transform: translateY(-110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .h1 { left: 5%; animation-duration: 9s; }
-        .h2 { left: 15%; animation-duration: 12s; animation-delay: 2s; }
-        .h3 { left: 30%; animation-duration: 10s; animation-delay: 4s; }
-        .h4 { left: 50%; animation-duration: 13s; animation-delay: 1s; }
-        .h5 { left: 70%; animation-duration: 11s; animation-delay: 3s; }
-        .h6 { left: 85%; animation-duration: 14s; animation-delay: 5s; }
-
-        @media (max-width: 600px) {
-
-            .card {
-                padding: 40px 20px;
-            }
-
-            .message {
-                font-size: 17px;
-            }
-
-            .letter {
-                padding: 20px;
-            }
-
-            .letter p {
-                font-size: 18px;
-            }
-
-            .heart {
-                font-size: 55px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- Floating hearts -->
-    <div class="floating-heart h1">❤️</div>
-    <div class="floating-heart h2">💗</div>
-    <div class="floating-heart h3">💕</div>
-    <div class="floating-heart h4">❤️</div>
-    <div class="floating-heart h5">💖</div>
-    <div class="floating-heart h6">💞</div>
+```
+<!-- Floating Hearts -->
+
+<div class="floating-heart h1">❤️</div>
+<div class="floating-heart h2">💗</div>
+<div class="floating-heart h3">💕</div>
+<div class="floating-heart h4">❤️</div>
+<div class="floating-heart h5">💖</div>
+<div class="floating-heart h6">💞</div>
 
 
-    <div class="container">
+<!-- Stars -->
 
-        <div class="card">
-
-            <div class="heart">❤️</div>
-
-            <h1>I'm Missing You</h1>
-
-            <div class="subtitle">
-                More than words can ever explain...
-            </div>
+<div class="star s1">✦</div>
+<div class="star s2">✧</div>
+<div class="star s3">✦</div>
+<div class="star s4">✧</div>
 
 
-            <div class="message">
+<!-- Main -->
 
-                <p>
-                    Every day without you feels a little longer.
-                    I keep looking at my phone hoping to see your name,
-                    waiting for that one message from you that can
-                    instantly make my whole day better.
-                </p>
+<div class="container">
+
+    <div class="card">
+
+        <!-- Heart -->
+
+        <div class="heart">
+            ❤️
+        </div>
+
+
+        <!-- Heading -->
+
+        <h1>
+            Until You Come Back
+        </h1>
+
+        <div class="subtitle">
+            Take care of Mom... I'll be here waiting for you 🥺💕
+        </div>
+
+
+        <!-- Message -->
+
+        <div class="message">
+
+            <p>
+                I know you had to go home, and I completely
+                understand why. Right now, your family needs you,
+                especially your mom. ❤️
+            </p>
+
+            <br>
+
+            <p>
+                But honestly...
+                I already miss you so much.
+                One month feels like such a long time when the
+                person you want beside you isn't here.
+            </p>
+
+            <br>
+
+            <p>
+                I miss your voice.
+                I miss our conversations.
+                I miss seeing you.
+                I even miss those little things about you
+                that I never thought I would miss this much.
+                🥺
+            </p>
+
+            <br>
+
+            <p>
+                But please don't worry about me.
+                <span class="highlight">
+                    Your mom needs you right now.
+                </span>
+                Be there for her, take care of her,
+                and give her all the love you can.
+            </p>
+
+            <br>
+
+            <p>
+                I'll be right here...
+                waiting for you,
+                thinking about you,
+                and cheering for you from here. ❤️
+            </p>
+
+        </div>
+
+
+        <!-- Divider -->
+
+        <div class="divider"></div>
+
+
+        <!-- Love Letter -->
+
+        <div class="letter">
+
+            <p>
+
+                My Love, ❤️
+
+                <br><br>
+
+                I know this month is going to feel long for both of us.
+
+                <br><br>
+
+                I know you need to be with your mom right now,
+                and I want you to know that I completely understand.
+                There is nowhere else you should be right now
+                except beside your family.
+
+                <br><br>
+
+                So don't ever feel bad for being away from me.
+
+                <br><br>
+
+                Take care of her.
+                Hold her hand.
+                Make her smile.
+                Stay beside her whenever she needs you.
+
+                <br><br>
+
+                And whenever you feel tired,
+                stressed,
+                or you simply miss me...
+
+                <br><br>
+
+                Remember that there is someone here
+                thinking about you every single day. ❤️
+
+                <br><br>
+
+                I may not be able to sit beside you,
+                hold your hand,
+                or give you a hug right now...
+
+                <br><br>
+
+                But my heart is always with you.
+
+                <br><br>
+
+                So take care of your mom,
+                take care of yourself,
+                and come back to me safely.
+
+                <br><br>
+
+                I'll be waiting for that smile.
+                I'll be waiting for that hug.
+
+                <br><br>
+
+                Most importantly...
 
                 <br>
 
-                <p>
-                    I don't just miss talking to you...
-                    I miss <span class="highlight">you</span>.
-                </p>
+                I'll be waiting for YOU. ❤️
 
-            </div>
+            </p>
 
-
-            <div class="divider"></div>
+        </div>
 
 
-            <div class="letter">
+        <!-- Waiting -->
 
-                <p>
-                    "If I could pause time, I would choose the moment
-                    when I'm with you and stay there a little longer.
-                    Until I can see you again, I'll be here...
-                    thinking about you, missing you,
-                    and waiting for you."
-                </p>
+        <div class="waiting">
 
-            </div>
+            <h2>
+                One Month Without You... 🥺❤️
+            </h2>
 
+            <p>
+                It might feel like a long month,
+                but I'll count the days until you're back.
+            </p>
 
-            <div class="waiting">
+            <br>
 
-                <h2>I'm Waiting For You... 🥺❤️</h2>
+            <p>
+                Until then,
+                my love is going with you wherever you go. 💕
+            </p>
 
-                <p>
-                    No matter how long it takes,
-                    a part of my heart will always be waiting for you.
-                </p>
-
-            </div>
+        </div>
 
 
-            <a href="#" class="button" onclick="showLove()">
-                Click Here ❤️
-            </a>
+        <!-- Button -->
+
+        <a
+            href="#"
+            class="button"
+            onclick="showLove(); return false;"
+        >
+            Click Here, My Love ❤️
+        </a>
 
 
-            <div class="signature">
-                Someone who misses you more than you know...
-                <span>❤️ Yours ❤️</span>
-            </div>
+        <!-- Signature -->
+
+        <div class="signature">
+
+            Take care of yourself and your mom. ❤️
+
+            <br>
+
+            I'll be here waiting for you...
+
+            <span>
+                Come back to me soon ❤️
+            </span>
 
         </div>
 
     </div>
 
+</div>
 
-    <script>
 
-        function showLove() {
+<!-- JavaScript -->
 
-            alert(
-                "I miss you so much! ❤️\n\n" +
-                "Come back soon... 🥺\n" +
-                "I'm waiting for you. 💕"
-            );
+<script>
 
-        }
+    function showLove() {
 
-    </script>
+        alert(
+            "I miss you so much! ❤️\n\n" +
+            "Take care of your mom and yourself. 🥺💕\n\n" +
+            "Don't worry about me...\n" +
+            "I'll be right here waiting for you.\n\n" +
+            "Come back safely, my love. ❤️"
+        );
+
+    }
+
+</script>
+```
 
 </body>
 </html>
