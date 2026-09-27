@@ -1,0 +1,367 @@
+i<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Missing You ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #12001f, #3b0a45, #750d48);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Background glow */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 50, 140, 0.25);
+            filter: blur(100px);
+            border-radius: 50%;
+            top: -150px;
+            left: -150px;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: rgba(150, 50, 255, 0.2);
+            filter: blur(100px);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 850px;
+            padding: 55px 35px;
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 30px;
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,0.4),
+                inset 0 0 30px rgba(255,255,255,0.04);
+        }
+
+        .heart {
+            font-size: 70px;
+            animation: heartbeat 1.4s infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.15);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.12);
+            }
+        }
+
+        h1 {
+            font-size: clamp(40px, 7vw, 75px);
+            font-weight: 700;
+            background: linear-gradient(90deg, #ffb6d9, #fff, #ff72b5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #ffd8eb;
+            margin-bottom: 35px;
+        }
+
+        .message {
+            max-width: 650px;
+            margin: auto;
+            font-size: 19px;
+            line-height: 1.9;
+            color: #ffeaf4;
+        }
+
+        .highlight {
+            color: #ff9dcc;
+            font-weight: bold;
+        }
+
+        .divider {
+            width: 100px;
+            height: 3px;
+            margin: 35px auto;
+            background: linear-gradient(90deg, transparent, #ff70ad, transparent);
+        }
+
+        .letter {
+            margin: 30px auto;
+            max-width: 650px;
+            padding: 30px;
+
+            background: rgba(255,255,255,0.07);
+            border-radius: 20px;
+
+            border-left: 3px solid #ff6fae;
+            border-right: 3px solid #ff6fae;
+        }
+
+        .letter p {
+            font-family: Georgia, serif;
+            font-size: 21px;
+            line-height: 1.8;
+            font-style: italic;
+            color: #fff0f7;
+        }
+
+        .waiting {
+            margin-top: 35px;
+        }
+
+        .waiting h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+            color: #ffabd0;
+        }
+
+        .waiting p {
+            font-size: 18px;
+            color: #ffe5f0;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 35px;
+
+            border-radius: 50px;
+            text-decoration: none;
+
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+
+            background: linear-gradient(135deg, #ff4f9a, #c62cff);
+
+            box-shadow: 0 10px 30px rgba(255, 50, 150, 0.35);
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 15px 40px rgba(255, 50, 150, 0.55);
+        }
+
+        .signature {
+            margin-top: 40px;
+            font-size: 18px;
+            color: #ffbddb;
+        }
+
+        .signature span {
+            display: block;
+            font-size: 30px;
+            margin-top: 8px;
+        }
+
+        /* Floating hearts */
+
+        .floating-heart {
+            position: fixed;
+            bottom: -50px;
+            font-size: 25px;
+            animation: floatUp linear infinite;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .h1 { left: 5%; animation-duration: 9s; }
+        .h2 { left: 15%; animation-duration: 12s; animation-delay: 2s; }
+        .h3 { left: 30%; animation-duration: 10s; animation-delay: 4s; }
+        .h4 { left: 50%; animation-duration: 13s; animation-delay: 1s; }
+        .h5 { left: 70%; animation-duration: 11s; animation-delay: 3s; }
+        .h6 { left: 85%; animation-duration: 14s; animation-delay: 5s; }
+
+        @media (max-width: 600px) {
+
+            .card {
+                padding: 40px 20px;
+            }
+
+            .message {
+                font-size: 17px;
+            }
+
+            .letter {
+                padding: 20px;
+            }
+
+            .letter p {
+                font-size: 18px;
+            }
+
+            .heart {
+                font-size: 55px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating hearts -->
+    <div class="floating-heart h1">❤️</div>
+    <div class="floating-heart h2">💗</div>
+    <div class="floating-heart h3">💕</div>
+    <div class="floating-heart h4">❤️</div>
+    <div class="floating-heart h5">💖</div>
+    <div class="floating-heart h6">💞</div>
+
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="heart">❤️</div>
+
+            <h1>I'm Missing You</h1>
+
+            <div class="subtitle">
+                More than words can ever explain...
+            </div>
+
+
+            <div class="message">
+
+                <p>
+                    Every day without you feels a little longer.
+                    I keep looking at my phone hoping to see your name,
+                    waiting for that one message from you that can
+                    instantly make my whole day better.
+                </p>
+
+                <br>
+
+                <p>
+                    I don't just miss talking to you...
+                    I miss <span class="highlight">you</span>.
+                </p>
+
+            </div>
+
+
+            <div class="divider"></div>
+
+
+            <div class="letter">
+
+                <p>
+                    "If I could pause time, I would choose the moment
+                    when I'm with you and stay there a little longer.
+                    Until I can see you again, I'll be here...
+                    thinking about you, missing you,
+                    and waiting for you."
+                </p>
+
+            </div>
+
+
+            <div class="waiting">
+
+                <h2>I'm Waiting For You... 🥺❤️</h2>
+
+                <p>
+                    No matter how long it takes,
+                    a part of my heart will always be waiting for you.
+                </p>
+
+            </div>
+
+
+            <a href="#" class="button" onclick="showLove()">
+                Click Here ❤️
+            </a>
+
+
+            <div class="signature">
+                Someone who misses you more than you know...
+                <span>❤️ Yours ❤️</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function showLove() {
+
+            alert(
+                "I miss you so much! ❤️\n\n" +
+                "Come back soon... 🥺\n" +
+                "I'm waiting for you. 💕"
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
